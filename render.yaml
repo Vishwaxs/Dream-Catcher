@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: dream-catcher
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev --build-from-source
+    startCommand: npm start
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.6-flash
+      - key: NODE_ENV
+        value: production
